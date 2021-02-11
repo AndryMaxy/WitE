@@ -10,8 +10,8 @@ TagManager:
   - KEY
   - HOLE
   - ENEMY
-  - MONSTER
   - EXIT
+  - BULLET
   layers:
   - Default
   - TransparentFX
@@ -21,9 +21,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - Player
+  - Equipment
+  - Bullet
   - 
   - 
   - 

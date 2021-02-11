@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 1366286580483276618}
   - component: {fileID: 8654707564254627792}
   - component: {fileID: 1382096898727232124}
+  - component: {fileID: 4304562958874547288}
+  - component: {fileID: -5001320004326436669}
   m_Layer: 0
   m_Name: WeakWall
   m_TagString: WEAK_WALL
@@ -109,3 +111,34 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &4304562958874547288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6911509824985379628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04c5cdd456351234186bae5760b1ab9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &-5001320004326436669
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6911509824985379628}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f526b918be3bb1b48adf42fca5625372, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
