@@ -28,10 +28,8 @@ public class Bomb : Weapon
 
     private void Kaboom()
     {
-        GameObject target = FindTarget();
-
-        IExplosive explosive = target.GetComponent<IExplosive>();
-        explosive.explode();
+        IExplosive target = FindTarget();
+        target.explode();
     }
 
     protected override bool isUseable()
@@ -39,7 +37,7 @@ public class Bomb : Weapon
         return base.isUseable() && FindTarget() != null;
     }
 
-    private GameObject FindTarget()
+    private IExplosive FindTarget()
     {
         int x = 0;
         int y = 0;
@@ -72,9 +70,10 @@ public class Bomb : Weapon
         Collider2D[] coliders = Physics2D.OverlapAreaAll(bomb, area);
         foreach (var colider in coliders)
         {
-            if (colider.gameObject.CompareTag(GameTags.WEAK_WALL.ToString()))
+            IExplosive explosive = colider.gameObject.GetComponent<IExplosive>();
+            if (explosive != null)
             {
-                return colider.gameObject;
+                return explosive;
             }
         }
 

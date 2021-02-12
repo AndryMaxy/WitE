@@ -50,10 +50,24 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-        //float horizontal = joystick.Horizontal;
-        //float vertical = joystick.Vertical;
+        float horizontal = 0;
+        if (Input.GetAxis("Horizontal") != 0)
+        {
+            horizontal = Input.GetAxis("Horizontal");
+        } else
+        {
+            horizontal = joystick.Horizontal;
+        }
+
+
+        float vertical = 0;
+        if (Input.GetAxis("Vertical") != 0)
+        {
+            vertical = Input.GetAxis("Vertical");
+        } else
+        {
+            vertical = joystick.Vertical;
+        }
         rb.velocity = new Vector2(horizontal * 4f, rb.velocity.y);
         rb.velocity = new Vector2(rb.velocity.x, vertical * 4f);
 

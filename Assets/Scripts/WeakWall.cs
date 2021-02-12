@@ -16,6 +16,8 @@ public class WeakWall : MonoBehaviour, IExplosive
 
     public void explode()
     {
+        gameObject.GetComponent<Collider2D>().enabled = false;
+
         animator.SetTrigger(animationName);
 
         StartCoroutine(explodeWall());
