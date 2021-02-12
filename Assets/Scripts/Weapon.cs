@@ -7,7 +7,7 @@ public abstract class Weapon : MonoBehaviour
 {
     public Text text;
 
-    private int count = 3;
+    public int count = 0;
 
     private AudioSource sound;
 

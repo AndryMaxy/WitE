@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
     private FACING facing;
     private Rigidbody2D rb;
 
+    private float duration = 5f;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -28,7 +30,17 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector2 origin = new Vector2(transform.position.x, transform.position.y);
+        Ray2D rayUp = new Ray2D(origin, Vector2.up);
+        Ray2D rayDown = new Ray2D(origin, Vector2.down);
+        Ray2D rayLeft = new Ray2D(origin, Vector2.left);
+        Ray2D rayRight = new Ray2D(origin, Vector2.right);
 
+
+        Debug.DrawRay(new Vector3(origin.x, origin.y), Vector3.up, Color.red, duration);
+        Debug.DrawRay(new Vector3(origin.x, origin.y), Vector3.down, Color.yellow, duration);
+        Debug.DrawRay(new Vector3(origin.x, origin.y), Vector3.left, Color.green, duration);
+        Debug.DrawRay(new Vector3(origin.x, origin.y), Vector3.right, Color.blue, duration);
     }
 
     public FACING GetFacing()

@@ -9,10 +9,12 @@ public class Enemy : MonoBehaviour
     public int health;
 
     private Animator animator;
+    private AudioSource audioSource;
     // Use this for initialization
     void Start()
     {
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -23,6 +25,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        audioSource.Play();
         animator.SetTrigger(animationName);
 
         StartCoroutine(DecreseHealth(damage));
