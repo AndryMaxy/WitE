@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6514076802966411434}
   - component: {fileID: 3554225438608465158}
   - component: {fileID: 1025905504756811779}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: FakeWall
   m_TagString: FAKE_WALL
   m_Icon: {fileID: 0}
@@ -70,9 +70,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -795997193
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 8229234674354008737, guid: 593781d0a99d0284792ee67bc88ba632,
+  m_Sprite: {fileID: 8367830406354533065, guid: c8305b926adf5164ca95cc02b3a38c7b,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

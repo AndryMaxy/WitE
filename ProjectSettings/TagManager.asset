@@ -27,11 +27,11 @@ TagManager:
   - Bullet
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Ground
+  - SolidWall
+  - WeakWall
+  - FakeWall
+  - Map
   - 
   - 
   - 
@@ -62,11 +62,11 @@ TagManager:
   - name: Enemy
     uniqueID: 1389623335
     locked: 0
-  - name: FakeWall
-    uniqueID: 3498970103
-    locked: 0
   - name: Player
     uniqueID: 635843591
+    locked: 0
+  - name: FakeWall
+    uniqueID: 3498970103
     locked: 0
   - name: UI
     uniqueID: 2716833175

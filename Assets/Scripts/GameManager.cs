@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public Player player;
     public GameObject gameOverPanel;
     public GameObject winPanel;
+    public GameObject map;
 
     private AudioSource audioSource;
 
@@ -40,5 +41,17 @@ public class GameManager : MonoBehaviour
     public void Play()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void ShowMap()
+    {
+        player.enabled = false;
+        map.SetActive(true);
+    }
+
+    public void HideMap()
+    {
+        player.enabled = true;
+        map.SetActive(false);
     }
 }

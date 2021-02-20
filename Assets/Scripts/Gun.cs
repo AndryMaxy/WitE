@@ -13,15 +13,6 @@ public class Gun : Weapon
         base.Start();
     }
 
-    protected override void Update()
-    {
-        base.Update();
-        if (Input.GetButtonDown("Fire1"))
-        {
-            Use();
-        }
-    }
-
     protected override void Apply()
     {
         Fire();

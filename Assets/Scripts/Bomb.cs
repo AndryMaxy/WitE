@@ -12,15 +12,6 @@ public class Bomb : Weapon
 
     }
 
-    protected override void Update()
-    {
-        base.Update();
-        if (Input.GetButtonDown("Fire2"))
-        {
-            Use();
-        }
-    }
-
     protected override void Apply()
     {
         Kaboom();
