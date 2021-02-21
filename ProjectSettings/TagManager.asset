@@ -12,7 +12,7 @@ TagManager:
   - ENEMY
   - EXIT
   - BULLET
-  - FAKE_WALL
+  - FOG
   layers:
   - Default
   - TransparentFX
@@ -30,7 +30,7 @@ TagManager:
   - Ground
   - SolidWall
   - WeakWall
-  - FakeWall
+  - Fog
   - Map
   - 
   - 
@@ -65,7 +65,7 @@ TagManager:
   - name: Player
     uniqueID: 635843591
     locked: 0
-  - name: FakeWall
+  - name: Fog
     uniqueID: 3498970103
     locked: 0
   - name: UI

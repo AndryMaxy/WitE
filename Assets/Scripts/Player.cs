@@ -86,8 +86,6 @@ public class Player : MonoBehaviour
 
         }
 
-        //Debug.Log("facing = " + facing);
-        //Debug.Log("goes = " + goesTo);
         if (goesTo != facing)
         {
             Vector3 vector = new Vector3(0, 0, (float)goesTo);
@@ -142,6 +140,17 @@ public class Player : MonoBehaviour
                 break;
         }
         Destroy(obj);
+    }
+
+    public void Disable()
+    {
+        enabled = false;
+        rb.velocity = new Vector2(0f, 0f);
+    }
+
+    public void Enable()
+    {
+        enabled = true;
     }
 
     public enum FACING

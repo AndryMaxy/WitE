@@ -10,12 +10,12 @@ public class GameManager : MonoBehaviour
     public GameObject winPanel;
     public GameObject map;
 
-    private AudioSource audioSource;
+    private AudioSource backgroundAudio;
 
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
-        audioSource.Play();
+        backgroundAudio = GetComponent<AudioSource>();
+        backgroundAudio.Play();
     }
 
     // Update is called once per frame
@@ -26,14 +26,15 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        audioSource.Stop();
+        backgroundAudio.Stop();
         Destroy(player);
         gameOverPanel.SetActive(true);
     }
 
     public void Win()
     {
-        audioSource.Stop();
+        player.enabled = false;
+        backgroundAudio.Stop();
         winPanel.SetActive(true);
     }
 
@@ -45,13 +46,13 @@ public class GameManager : MonoBehaviour
 
     public void ShowMap()
     {
-        player.enabled = false;
+        player.Disable();
         map.SetActive(true);
     }
 
     public void HideMap()
     {
-        player.enabled = true;
+        player.Enable();
         map.SetActive(false);
     }
 }
