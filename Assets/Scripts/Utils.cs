@@ -36,4 +36,15 @@ public class Utils
         return Vector2.up;
     }
 
+    public static int parseLevel(string name)
+    {
+        string[] array = name.Split('_');
+        int level = 0;
+        if (array.Length > 1)
+        {
+            int.TryParse(array[1], out level);
+        }
+        return level;
+    }
+
 }

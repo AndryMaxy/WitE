@@ -28,14 +28,22 @@ public class GameManager : MonoBehaviour
     {
         backgroundAudio.Stop();
         Destroy(player);
-        gameOverPanel.SetActive(true);
+        //gameOverPanel.SetActive(true);
+        SceneManager.LoadScene(SceneConstants.GAME_OVER, LoadSceneMode.Additive);
     }
 
     public void Win()
     {
+        int level = Utils.parseLevel(SceneManager.GetActiveScene().name);
+        PlayerPrefs.SetInt(PlayerPrefsConstants.COMPLETED_LEVEL, level);
         player.enabled = false;
         backgroundAudio.Stop();
-        winPanel.SetActive(true);
+        SceneManager.LoadScene(SceneConstants.LEVEL_COMPLETED, LoadSceneMode.Additive);
+    }
+
+    public void OpenMenu()
+    {
+        SceneManager.LoadScene(SceneConstants.MENU);
     }
 
 
