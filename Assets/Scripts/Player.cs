@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using System;
 
 public class Player : MonoBehaviour
@@ -16,6 +15,7 @@ public class Player : MonoBehaviour
     public AudioSource pickupSound;
     public AudioSource fallSound;
 
+    private List<Hub.Subscription> subs;
     private bool isKeyAvailable = false;
     private FACING facing;
     private Rigidbody2D rb;
@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        AddSubs();
     }
 
 
@@ -111,13 +113,13 @@ public class Player : MonoBehaviour
         {
             fallSound.Play();
             GetComponent<SpriteRenderer>().enabled = false;
-            GameManager gm = FindObjectOfType<GameManager>();
-            gm.GameOver();
+            Disable();
+            Hub.Publish(EventConstants.GAME_OVER);
         }
         else if (collObj.CompareTag("EXIT") && isKeyAvailable)
         {
-            GameManager gm = FindObjectOfType<GameManager>();
-            gm.Win();
+            Disable();
+            Hub.Publish(EventConstants.LEVEL_COMPLETED);
         }
     }
 
@@ -151,6 +153,25 @@ public class Player : MonoBehaviour
     public void Enable()
     {
         enabled = true;
+    }
+
+    private void AddSubs()
+    {
+        subs = new List<Hub.Subscription>();
+
+        Hub.Subscribe(subs, EventConstants.OPEN_MAP, delegate
+        {
+            Disable();
+        });
+        Hub.Subscribe(subs, EventConstants.CLOSE_MAP, delegate
+        {
+            Enable();
+        });
+    }
+
+    private void OnDestroy()
+    {
+        Hub.Unsubsribe(subs);
     }
 
     public enum FACING

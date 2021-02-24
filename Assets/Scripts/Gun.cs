@@ -20,7 +20,6 @@ public class Gun : Weapon
 
     void Fire()
     {
-        Debug.Log("fire point position: " + firePoint.position);
         Instantiate(bullet, firePoint.position, firePoint.rotation);
     }
 }
