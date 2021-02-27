@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-
-public interface IExplosive
+﻿public interface IExplosive
 {
     void explode();
 }

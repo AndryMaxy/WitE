@@ -1,21 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using System;
 
-public class Player : MonoBehaviour
+public class Player : EventBehaviour
 {
     public Joystick joystick;
 
     public Weapon gun;
     public Weapon bomb;
 
-    public GameObject key;
-
     public AudioSource pickupSound;
     public AudioSource fallSound;
 
-    private List<Hub.Subscription> subs;
     private bool isKeyAvailable = false;
     private FACING facing;
     private Rigidbody2D rb;
@@ -24,7 +19,7 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-        AddSubs();
+        AddEvents();
     }
 
 
@@ -136,9 +131,8 @@ public class Player : MonoBehaviour
                 bomb.Add(inventory.count);
                 break;
             case Inventory.Type.KEY:
-                key.SetActive(true);
                 isKeyAvailable = true;
-                Debug.Log("Key picked up");
+                Hub.Publish(EventConstants.GOLD_KEY_PICKED);
                 break;
         }
         Destroy(obj);
@@ -155,23 +149,16 @@ public class Player : MonoBehaviour
         enabled = true;
     }
 
-    private void AddSubs()
+    private void AddEvents()
     {
-        subs = new List<Hub.Subscription>();
-
-        Hub.Subscribe(subs, EventConstants.OPEN_MAP, delegate
+        AddEvent(EventConstants.OPEN_MAP, () =>
         {
             Disable();
         });
-        Hub.Subscribe(subs, EventConstants.CLOSE_MAP, delegate
+        AddEvent(EventConstants.CLOSE_MAP, () =>
         {
             Enable();
         });
-    }
-
-    private void OnDestroy()
-    {
-        Hub.Unsubsribe(subs);
     }
 
     public enum FACING

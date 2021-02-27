@@ -4,12 +4,11 @@ using System.Collections;
 public class Bomb : Weapon
 {
 
-    public Player player;
-
     protected override void Start()
     {
         base.Start();
 
+        AddEvent(EventConstants.KABOOM, () => Use()); ;
     }
 
     protected override void Apply()
@@ -26,6 +25,11 @@ public class Bomb : Weapon
     protected override bool isUseable()
     {
         return base.isUseable() && FindTarget() != null;
+    }
+
+    protected override void FireUpdateEvent()
+    {
+        Hub.Publish(EventConstants.UPDATE_BOMB_COUNT, count);
     }
 
     private IExplosive FindTarget()

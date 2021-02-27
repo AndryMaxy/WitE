@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-
 public class WeakWall : MonoBehaviour, IExplosive
 {
     const string animationName = "ExplodeWall";

@@ -11,15 +11,22 @@ public class Gun : Weapon
     protected override void Start()
     {
         base.Start();
+
+        AddEvent(EventConstants.FIRE, () => Use()); ;
     }
 
     protected override void Apply()
     {
-        Fire();
+        Shoot();
     }
 
-    void Fire()
+    void Shoot()
     {
         Instantiate(bullet, firePoint.position, firePoint.rotation);
+    }
+
+    protected override void FireUpdateEvent()
+    {
+        Hub.Publish(EventConstants.UPDATE_GUN_COUNT, count);
     }
 }

@@ -1,20 +1,20 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
+using System.Collections.Generic;
 
 
-public abstract class Weapon : MonoBehaviour
+public abstract class Weapon : EventBehaviour
 {
-    public Text text;
-
     public int count = 0;
 
     private AudioSource sound;
 
     protected virtual void Start()
     {
+        subs = new List<Hub.Subscription>();
+
         sound = GetComponent<AudioSource>();
-        UpdateView();
+        FireUpdateEvent();
     }
 
     protected virtual void Update()
@@ -25,7 +25,7 @@ public abstract class Weapon : MonoBehaviour
     public void Add(int count)
     {
         this.count += count;
-        UpdateView();
+        FireUpdateEvent();
     }
 
     public void Use()
@@ -35,7 +35,7 @@ public abstract class Weapon : MonoBehaviour
             sound.Play();
             Apply();
             --count;
-            UpdateView();
+            FireUpdateEvent();
         }
  
     }
@@ -46,8 +46,5 @@ public abstract class Weapon : MonoBehaviour
         return count > 0;
     }
 
-    protected virtual void UpdateView()
-    {
-        text.text = count.ToString();
-    }
+    protected abstract void FireUpdateEvent();
 }
