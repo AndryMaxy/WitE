@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8803587677713937307}
   - component: {fileID: 896382764896873303}
   - component: {fileID: 929622990064871425}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GUN-2
   m_TagString: GUN
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1475253031
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -6251682230944352461, guid: c8305b926adf5164ca95cc02b3a38c7b,
     type: 3}

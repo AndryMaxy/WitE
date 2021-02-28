@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8550444574499560988}
   - component: {fileID: 399695288306574087}
   - component: {fileID: 89172263420966198}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Key
   m_TagString: KEY
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1475253031
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -7676219313036738927, guid: c8305b926adf5164ca95cc02b3a38c7b,
     type: 3}

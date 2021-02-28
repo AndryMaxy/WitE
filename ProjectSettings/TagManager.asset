@@ -26,7 +26,7 @@ TagManager:
   - Equipment
   - Bullet
   - 
-  - 
+  - Hole
   - Ground
   - SolidWall
   - WeakWall
@@ -52,6 +52,9 @@ TagManager:
     locked: 0
   - name: Ground
     uniqueID: 3576939585
+    locked: 0
+  - name: SolidWall
+    uniqueID: 2962274219
     locked: 0
   - name: Wall
     uniqueID: 2734269813

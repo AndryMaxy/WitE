@@ -22,7 +22,7 @@ public class SceneController : MonoBehaviour
     public void LoadNextLevel()
     {
         int curSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        bool isNextAvailable = curSceneIndex + 2 <= SceneManager.sceneCount;
+        bool isNextAvailable = curSceneIndex + 2 <= SceneManager.sceneCountInBuildSettings;
 
         if (isNextAvailable)
         {

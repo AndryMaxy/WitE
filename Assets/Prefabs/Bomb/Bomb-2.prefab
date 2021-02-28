@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2675328054527440560}
   - component: {fileID: 6015854217136074364}
   - component: {fileID: 6046825523672378666}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bomb-2
   m_TagString: BOMB
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1475253031
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 226702753830753226, guid: c8305b926adf5164ca95cc02b3a38c7b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
