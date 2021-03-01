@@ -32,11 +32,11 @@ TagManager:
   - WeakWall
   - Fog
   - Map
+  - Bounds
   - 
-  - 
-  - 
-  - 
-  - 
+  - MainCamera
+  - MapCamera
+  - MinimapCamera
   - 
   - 
   - 
