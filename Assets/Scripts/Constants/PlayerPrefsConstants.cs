@@ -1,9 +1,6 @@
-﻿using UnityEngine;
-using System.Collections;
-
-
-public class PlayerPrefsConstants
+﻿public class PlayerPrefsConstants
 {
+    public const string OPTIMAL_ORTHO_Size = "OptimalOrthoSize";
     public const string COMPLETED_LEVEL = "CompletedLevel";
 
 }

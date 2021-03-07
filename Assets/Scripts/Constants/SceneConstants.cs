@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-
-public class SceneConstants
+﻿public class SceneConstants
 {
     public const string MENU = "Menu";
     public const string LEVEL = "Level_";

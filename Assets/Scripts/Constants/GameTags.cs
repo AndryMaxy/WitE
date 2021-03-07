@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-
-public enum GameTags
+﻿public enum GameTags
 {
-    ENEMY, GUN, BOMB, BULLET, WEAK_WALL, FOG, KEY, HOLE, EXIT
+    ENEMY, GUN, BOMB, BULLET, WEAK_WALL, FOG, KEY, HOLE, EXIT, BOUNDS
 }

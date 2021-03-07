@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-
-
+﻿
 public class EventConstants
 {
     public const string LEVEL_COMPLETED = "LvlCompleted";

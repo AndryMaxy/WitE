@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
-using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
 public class LevelManager : EventBehaviour
 {
     public int level;
+    public Collider2D bounds;
 
     private AudioSource backgroundAudio;
 
@@ -12,6 +12,8 @@ public class LevelManager : EventBehaviour
     {
         backgroundAudio = GetComponent<AudioSource>();
         backgroundAudio.Play();
+
+        SetOptimalOrthoSize();
 
         AddSubs();
     }
@@ -40,5 +42,16 @@ public class LevelManager : EventBehaviour
         AddEvent(EventConstants.CLOSE_MAP, () =>
             SceneManager.UnloadSceneAsync(SceneConstants.MAP)
         );
+    }
+
+    private void SetOptimalOrthoSize()
+    {
+        float screenRatio = (float)Screen.width / (float)Screen.height;
+        float targetRatio = bounds.bounds.size.x / bounds.bounds.size.y;
+
+        float differenceInSize = targetRatio / screenRatio;
+        float optimalSize = bounds.bounds.size.y / 2 * differenceInSize - 0.1f;
+
+        PlayerPrefs.SetFloat(PlayerPrefsConstants.OPTIMAL_ORTHO_Size, optimalSize);
     }
 }
