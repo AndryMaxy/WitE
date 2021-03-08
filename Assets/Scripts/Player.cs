@@ -108,12 +108,10 @@ public class Player : EventBehaviour
         {
             fallSound.Play();
             GetComponent<SpriteRenderer>().enabled = false;
-            Disable();
             Hub.Publish(EventConstants.GAME_OVER);
         }
         else if (collObj.CompareTag("EXIT") && isKeyAvailable)
         {
-            Disable();
             Hub.Publish(EventConstants.LEVEL_COMPLETED);
         }
     }
@@ -151,14 +149,6 @@ public class Player : EventBehaviour
 
     private void AddEvents()
     {
-        AddEvent(EventConstants.OPEN_MAP, () =>
-        {
-            Disable();
-        });
-        AddEvent(EventConstants.CLOSE_MAP, () =>
-        {
-            Enable();
-        });
     }
 
     public enum FACING

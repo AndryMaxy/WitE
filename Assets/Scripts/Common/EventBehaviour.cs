@@ -17,7 +17,7 @@ public class EventBehaviour : MonoBehaviour
         AddEvent<object>(eventName, obj => action());
     }
 
-    private void OnDestroy()
+    protected void OnDestroy()
     {
         Hub.Unsubsribe(subs);
     }

@@ -3,6 +3,7 @@ public class EventConstants
 {
     public const string LEVEL_COMPLETED = "LvlCompleted";
     public const string GAME_OVER = "GameOver";
+    public const string PAUSE = "Pause";
     public const string FIRE = "Fire";
     public const string KABOOM = "Kaboom";
     public const string OPEN_MAP = "OpenMap";

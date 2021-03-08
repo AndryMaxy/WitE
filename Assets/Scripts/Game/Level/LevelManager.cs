@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class LevelManager : EventBehaviour
 {
     public int level;
+    public Player player;
     public Collider2D bounds;
 
     private AudioSource backgroundAudio;
@@ -20,6 +21,9 @@ public class LevelManager : EventBehaviour
 
     private void AddSubs()
     {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.sceneUnloaded += OnSceneUnloaded;
+
         AddEvent(EventConstants.GAME_OVER, () =>
          {
              backgroundAudio.Stop();
@@ -39,8 +43,8 @@ public class LevelManager : EventBehaviour
             SceneManager.LoadScene(SceneConstants.MAP, LoadSceneMode.Additive)
         );
 
-        AddEvent(EventConstants.CLOSE_MAP, () =>
-            SceneManager.UnloadSceneAsync(SceneConstants.MAP)
+        AddEvent(EventConstants.PAUSE, () =>
+            SceneManager.LoadScene(SceneConstants.PAUSE_MENU, LoadSceneMode.Additive)
         );
     }
 
@@ -53,5 +57,22 @@ public class LevelManager : EventBehaviour
         float optimalSize = bounds.bounds.size.y / 2 * differenceInSize - 0.1f;
 
         PlayerPrefs.SetFloat(PlayerPrefsConstants.OPTIMAL_ORTHO_Size, optimalSize);
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        player.Disable();
+    }
+
+    private void OnSceneUnloaded(Scene scene)
+    {
+        player.Enable();
+    }
+
+    protected void OnDestroy()
+    {
+        base.OnDestroy();
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        SceneManager.sceneUnloaded -= OnSceneUnloaded;
     }
 }

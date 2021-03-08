@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class LevelClickHandler : MonoBehaviour
 {
@@ -17,5 +15,10 @@ public class LevelClickHandler : MonoBehaviour
     public void OpenMap()
     {
         Hub.Publish(EventConstants.OPEN_MAP);
+    }
+
+    public void Pause()
+    {
+        Hub.Publish(EventConstants.PAUSE);
     }
 }
