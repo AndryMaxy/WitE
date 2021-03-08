@@ -19,7 +19,7 @@ public class PinchZoom : Zoom
 
             float deltaMag = prevTouchDeltaMag - touchDeltaMag;
 
-            float size =cam.orthographicSize + deltaMag * step;
+            float size = cam.orthographicSize + deltaMag * step;
             SetOrthoSize(size);
         }
     }

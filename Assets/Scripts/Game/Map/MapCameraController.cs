@@ -34,7 +34,7 @@ public class MapCameraController : MonoBehaviour
         float targetRatio = bounds.size.x / bounds.size.y;
 
         float differenceInSize = targetRatio / screenRatio;
-        cam.orthographicSize = bounds.size.y / 2 * differenceInSize - 0.1f;
+        cam.orthographicSize = bounds.size.y / 2 * differenceInSize;
 
         SetHalfs();
     }
