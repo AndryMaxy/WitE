@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Advertisements;
 using UnityEngine.SceneManagement;
 
 public class LevelManager : EventBehaviour
@@ -28,6 +29,8 @@ public class LevelManager : EventBehaviour
          {
              backgroundAudio.Stop();
              SceneManager.LoadScene(SceneConstants.GAME_OVER, LoadSceneMode.Additive);
+
+             Ads.ShowVideo();
          });
 
         AddEvent(EventConstants.LEVEL_COMPLETED, () =>
@@ -37,6 +40,8 @@ public class LevelManager : EventBehaviour
             PlayerPrefs.SetInt(PlayerPrefsConstants.COMPLETED_LEVEL, level);
 
             SceneManager.LoadScene(SceneConstants.LEVEL_COMPLETED, LoadSceneMode.Additive);
+            
+            Ads.ShowVideo(true);
         });
 
         AddEvent(EventConstants.OPEN_MAP, () =>
